@@ -1,7 +1,7 @@
-package lhz.lx.product.utils;
+package lhz.lx.order.utils;
 
 
-import lhz.lx.product.VO.ResultVO;
+import lhz.lx.order.VO.ResultVO;
 
 public class ResultVOUtil {
 

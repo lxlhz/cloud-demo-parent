@@ -1,0 +1,23 @@
+server:
+  port: 10013
+eureka:
+  client:
+    service-url:
+      defaultZone: http://39.106.136.224:10011/eureka/
+spring:
+  application:
+    name: demo-order-service
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: lhzlx
+    url: jdbc:mysql://127.0.0.1:3306/demo_sell?characterEncoding=utf-8&serverTimezone=UTC
+    hikari:
+      idle-timeout: 60000
+      maximum-pool-size: 30
+      minimum-idle: 10
+# mybatis 别名扫描
+mybatis:
+  type-aliases-package: lhz.lx.order.pojo
+  # mapper.xml文件位置,如果没有映射文件，请注释掉
+  #mapper-locations: classpath:mappers/*.xml
