@@ -12,6 +12,7 @@
 
     <modules>
         <module>demo-eureka</module>
+        <module>demo-product-service</module>
     </modules>
 
     <groupId>lhz.lx</groupId>
@@ -35,6 +36,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
     </dependencies>
 
