@@ -3,10 +3,6 @@ package lhz.lx.order.service;
 
 import lhz.lx.order.dto.OrderDTO;
 
-/**
- * Created by 廖师兄
- * 2017-12-10 16:39
- */
 public interface OrderService {
 
     /**

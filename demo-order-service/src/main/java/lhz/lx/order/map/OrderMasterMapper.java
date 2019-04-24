@@ -1,5 +1,6 @@
 package lhz.lx.order.map;
 
+import lhz.lx.order.pojo.OrderMaster;
 import org.apache.ibatis.annotations.Mapper;
 import tk.mybatis.spring.annotation.MapperScan;
 
@@ -8,5 +9,5 @@ import tk.mybatis.spring.annotation.MapperScan;
  * Date on 2019/4/4 21:49
  */
 @Mapper
-public interface OrderMasterMapper  extends tk.mybatis.mapper.common.Mapper {
+public interface OrderMasterMapper  extends tk.mybatis.mapper.common.Mapper<OrderMaster> {
 }

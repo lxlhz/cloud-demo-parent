@@ -1,12 +1,14 @@
 server:
   port: 10013
+  servlet:
+    context-path: wisdom-site/v1
 eureka:
   client:
     service-url:
       defaultZone: http://39.106.136.224:10011/eureka/
 spring:
   application:
-    name: demo-order-service
+    name: wisdom-site
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     username: root
