@@ -9,8 +9,7 @@ import lhz.lx.product.utils.ResultVOUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,4 +32,17 @@ public class ProductController {
 
         return ResultVOUtil.success(productInfoList);
     }
+
+    /**
+     * 获取商品列表(给订单服务用的)
+     *
+     * @param
+     * @return
+     */
+    @RequestMapping("/listForOrder")
+    @ResponseBody
+    public String listForOrder() {
+        return "这是一个通过Feign请求，获取商品信息的接口";
+    }
+
 }

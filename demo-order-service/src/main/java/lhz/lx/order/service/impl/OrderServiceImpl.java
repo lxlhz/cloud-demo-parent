@@ -1,6 +1,7 @@
 package lhz.lx.order.service.impl;
 
 
+import lhz.lx.order.client.ProductClient;
 import lhz.lx.order.dto.OrderDTO;
 import lhz.lx.order.enums.OrderStatusEnum;
 import lhz.lx.order.enums.PayStatusEnum;
@@ -30,17 +31,24 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     OrderDetailMapper orderDetailMapper;
 
+    @Autowired
+    private ProductClient productClient;
+
     @Override
     public OrderDTO create(OrderDTO orderDTO) {
 
+        //调用商品服务获取数据
+        String order = productClient.listForOrder();
+        System.out.println("Feign返回结果" + order);
+
         //订单入库
         OrderMaster orderMaster = new OrderMaster();
-        orderDTO.setOrderId(KeyUtil.genUniqueKey());
-        BeanUtils.copyProperties(orderDTO, orderMaster);
         orderMaster.setOrderAmount(new BigDecimal(5));
         orderMaster.setOrderStatus(OrderStatusEnum.NEW.getCode());
         orderMaster.setPayStatus(PayStatusEnum.WAIT.getCode());
         orderMasterMapper.insert(orderMaster);
+
+
         return orderDTO;
     }
 }
