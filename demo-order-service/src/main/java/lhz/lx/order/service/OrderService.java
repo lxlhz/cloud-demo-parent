@@ -10,5 +10,5 @@ public interface OrderService {
      * @param orderDTO
      * @return
      */
-    OrderDTO create(OrderDTO orderDTO);
+    String create(OrderDTO orderDTO);
 }

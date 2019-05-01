@@ -1,6 +1,7 @@
 package lhz.lx.order.service.impl;
 
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import lhz.lx.order.client.ProductClient;
 import lhz.lx.order.dto.OrderDTO;
 import lhz.lx.order.enums.OrderStatusEnum;
@@ -35,20 +36,16 @@ public class OrderServiceImpl implements OrderService {
     private ProductClient productClient;
 
     @Override
-    public OrderDTO create(OrderDTO orderDTO) {
+    @HystrixCommand(fallbackMethod = "listByproId")
+    public String create(OrderDTO orderDTO) {
 
         //调用商品服务获取数据
         String order = productClient.listForOrder();
         System.out.println("Feign返回结果" + order);
+        return order;
+    }
 
-        //订单入库
-        OrderMaster orderMaster = new OrderMaster();
-        orderMaster.setOrderAmount(new BigDecimal(5));
-        orderMaster.setOrderStatus(OrderStatusEnum.NEW.getCode());
-        orderMaster.setPayStatus(PayStatusEnum.WAIT.getCode());
-        orderMasterMapper.insert(orderMaster);
-
-
-        return orderDTO;
+    public String listByproId() {
+        return "服务熔断处理";
     }
 }

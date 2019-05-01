@@ -1,0 +1,16 @@
+server:
+  port: 10014
+eureka:
+  client:
+    service-url:
+      defaultZone: http://39.106.136.224:10011/eureka/
+spring:
+  application:
+    name: demo-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/lxlhz/demo-config.git
+          username: lhz1219@qq.com
+          password: woaixia123321

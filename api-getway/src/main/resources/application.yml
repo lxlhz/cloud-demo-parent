@@ -1,0 +1,17 @@
+server:
+  port: 10015
+eureka:
+  client:
+    service-url:
+      defaultZone: http://39.106.136.224:10011/eureka/
+spring:
+  application:
+    name: api-gateway
+zuul:
+  routes:
+    #product-service: # 这里是路由id，随意写
+    #path: /product/** # 这里是映射路径。映射所有product-service开头的路径，任意名称
+    #serviceId: DEMO-PRODUCT-SERVICE #指定服务名称[注册的eureka上的名称]
+  #简写
+    demo-product-service: /product/** #路由Id和服务名称一致
+  prefix: /api

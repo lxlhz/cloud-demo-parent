@@ -8,6 +8,7 @@ import lhz.lx.order.service.OrderService;
 import lhz.lx.order.utils.ResultVOUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -15,6 +16,9 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/order")
 @Slf4j
 public class OrderController {
+
+    @Value("${spring.application.name}")
+    private String name;
 
     @Autowired
     private OrderService orderService;
@@ -28,4 +32,9 @@ public class OrderController {
         return ResultVOUtil.success(orderService.create(orderDTO));
     }
 
+    @GetMapping("/test")
+    @ResponseBody
+    public String test() {
+        return name;
+    }
 }
