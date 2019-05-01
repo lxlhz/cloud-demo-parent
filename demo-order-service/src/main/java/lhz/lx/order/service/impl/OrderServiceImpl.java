@@ -2,6 +2,7 @@ package lhz.lx.order.service.impl;
 
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import lhz.lx.order.client.ProductClient;
 import lhz.lx.order.dto.OrderDTO;
 import lhz.lx.order.enums.OrderStatusEnum;
@@ -35,9 +36,7 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private ProductClient productClient;
 
-    @Override
-    @HystrixCommand(fallbackMethod = "listByproId")
-    public String create(OrderDTO orderDTO) {
+    public String create() {
 
         //调用商品服务获取数据
         String order = productClient.listForOrder();

@@ -21,3 +21,6 @@ mybatis:
   type-aliases-package: lhz.lx.order.pojo
   # mapper.xml文件位置,如果没有映射文件，请注释掉
   #mapper-locations: classpath:mappers/*.xml
+feign:
+  hystrix:
+    enabled: true

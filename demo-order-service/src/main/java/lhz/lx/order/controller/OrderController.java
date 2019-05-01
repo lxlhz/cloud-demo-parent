@@ -29,7 +29,7 @@ public class OrderController {
     public ResultVO create() {
         //数据模拟前端传递过来
         OrderDTO orderDTO = new OrderDTO();
-        return ResultVOUtil.success(orderService.create(orderDTO));
+        return ResultVOUtil.success(orderService.create());
     }
 
     @GetMapping("/test")
